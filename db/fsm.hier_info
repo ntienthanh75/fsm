@@ -1,0 +1,38 @@
+|fsm
+clk => clk1.CLK
+clk => \gen_clk1:count[0].CLK
+clk => \gen_clk1:count[1].CLK
+clk => \gen_clk1:count[2].CLK
+clk => \gen_clk1:count[3].CLK
+clk => \gen_clk1:count[4].CLK
+clk => \gen_clk1:count[5].CLK
+clk => \gen_clk1:count[6].CLK
+clk => \gen_clk1:count[7].CLK
+clk => \gen_clk1:count[8].CLK
+clk => \gen_clk1:count[9].CLK
+clk => \gen_clk1:count[10].CLK
+clk => \gen_clk1:count[11].CLK
+clk => \gen_clk1:count[12].CLK
+clk => \gen_clk1:count[13].CLK
+clk => \gen_clk1:count[14].CLK
+clk => \gen_clk1:count[15].CLK
+clk => \gen_clk1:count[16].CLK
+clk => \gen_clk1:count[17].CLK
+clk => \gen_clk1:count[18].CLK
+clk => \gen_clk1:count[19].CLK
+clk => \gen_clk1:count[20].CLK
+clk => \gen_clk1:count[21].CLK
+clk => \gen_clk1:count[22].CLK
+clk => \gen_clk1:count[23].CLK
+reset => ledOutput_r[0].ACLR
+reset => ledOutput_r[1].ACLR
+reset => ledOutput_r[2].ACLR
+reset => ledOutput_r[3].ACLR
+reset => currentState~5.DATAIN
+ledOutput_o[0] <= ledOutput_r[0].DB_MAX_OUTPUT_PORT_TYPE
+ledOutput_o[1] <= ledOutput_r[1].DB_MAX_OUTPUT_PORT_TYPE
+ledOutput_o[2] <= ledOutput_r[2].DB_MAX_OUTPUT_PORT_TYPE
+ledOutput_o[3] <= ledOutput_r[3].DB_MAX_OUTPUT_PORT_TYPE
+buzz <= <VCC>
+
+

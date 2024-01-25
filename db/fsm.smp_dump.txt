@@ -1,0 +1,9 @@
+
+State Machine - |fsm|currentState
+Name currentState.StateF currentState.StateA currentState.StateD currentState.StateC currentState.StateB currentState.StateE 
+currentState.StateE 0 0 0 0 0 0 
+currentState.StateB 0 0 0 0 1 1 
+currentState.StateC 0 0 0 1 0 1 
+currentState.StateD 0 0 1 0 0 1 
+currentState.StateA 0 1 0 0 0 1 
+currentState.StateF 1 0 0 0 0 1 

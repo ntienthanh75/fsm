@@ -1,0 +1,66 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_unsigned.ALL;
+
+ENTITY FsmLEDController IS
+PORT (
+   clock      : IN  STD_LOGIC;
+   reset      : IN  STD_LOGIC;
+   ledOutput  : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+   );
+END ENTITY FsmLEDController;
+
+ARCHITECTURE Behavior OF FsmLEDController IS
+   TYPE StateType IS (StateA, StateB, StateC);
+   SIGNAL currentState, nextState : StateType;
+
+   SIGNAL operation1_done, operation2_done, operation3_done, operation4_done, operation5_done : BOOLEAN := FALSE;
+
+BEGIN
+   PROCESS (clock, reset)
+   BEGIN
+      IF (reset = '1') THEN
+         currentState <= StateA;
+         operation1_done <= FALSE;
+         operation2_done <= FALSE;
+         operation3_done <= FALSE;
+         operation4_done <= FALSE;
+         operation5_done <= FALSE;
+      ELSIF (rising_edge(clock)) THEN
+         CASE currentState IS
+            WHEN StateA =>
+               -- Transition and output logic for StateA
+               nextState <= StateB;
+               ledOutput <= "0001";
+            WHEN StateB =>
+               -- Transition and output logic for StateB
+               nextState <= StateC;
+               -- Additional operations based on currentState
+               IF NOT operation1_done THEN
+                  -- do operation 1
+                  operation1_done <= TRUE;
+               ELSIF NOT operation2_done THEN
+                  -- do operation 2
+                  operation2_done <= TRUE;
+               ELSIF NOT operation3_done THEN
+                  -- do operation 3
+                  operation3_done <= TRUE;
+               END IF;
+               ledOutput <= "0010";
+            WHEN StateC =>
+               -- Transition and output logic for StateC
+               nextState <= StateA;
+               -- Additional operations based on currentState
+               IF NOT operation4_done THEN
+                  -- do operation 4
+                  operation4_done <= TRUE;
+               ELSIF NOT operation5_done THEN
+                  -- do operation 5
+                  operation5_done <= TRUE;
+               END IF;
+               ledOutput <= "0100";
+         END CASE;
+      END IF;
+   END PROCESS;
+
+END ARCHITECTURE Behavior;
